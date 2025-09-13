@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhập Mật Khẩu</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://github.com/Panbap/anh/blob/main/icon1.png?raw=true" type="image/png" />
+    <style>
+        body {
+            margin: 0;
+            font-family: "Mali", cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #e0f7fa, #f8f9fa);
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-family: "Mali", cursive;
+            color: #2c3e50;
+            font-size: 42px;
+            margin-bottom: 32px;
+            margin-top: 0px;
+            text-shadow: 1px 1px 0 #ffffff, 2px 2px 0 #d0d0d0;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            padding: 50px;
+            border-radius: 16px;
+            background-color: rgba(221 218 218 / 85%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 240px;
+            height: 240px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        .error-message {
+            width: 240px;
+            margin-top: 10px;
+            color: #e53935;
+            font-size: 15px;
+            min-height: 20px;
+            text-align: center;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #password {
+            width: 180px;
+            padding: 12px;
+            font-size: 24px;
+            font-weight: bold;
+            border: 2px solid #ffffffff;
+            border-radius: 8px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            font-family: "Mali", cursive;
+            letter-spacing: 10px;
+            user-select: none;
+            caret-color: transparent;
+            cursor: pointer;
+        }
+
+        #password:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #4dd0e1;
+            border-color: #4dd0e1;
+        }
+
+        .number-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .number-grid button {
+            font-family: "Mali", cursive;
+            font-weight: 600;
+            width: 60px;
+            height: 60px;
+            font-size: 22px;
+            border: none;
+            background-color: #e0f7fa;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #006064;
+        }
+
+        .number-grid button:hover {
+            background-color: #4dd0e1;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .number-grid button.zero {
+            grid-column: 2;
+        }
+
+        .number-grid button.delete-btn {
+            background-color: #ef5350;
+            color: white;
+        }
+
+        .number-grid button.submit {
+            background-color: #26a69a;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+
+            body,
+            .container {
+                overflow-x: hidden;
+            }
+
+            body {
+                height: auto;
+                padding: 20px;
+                overflow-x: hidden;
+            }
+
+            h1 {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                padding: 20px;
+                box-shadow: none;
+                border-radius: 12px;
+            }
+
+            .image-container {
+                gap: 6px;
+            }
+
+            .avatar {
+                width: 180px;
+                height: 180px;
+                border-radius: 16px;
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .error-message {
+                width: 180px;
+                font-size: 13px;
+                min-height: 18px;
+            }
+
+            #password {
+                width: 200px;
+            }
+
+            .number-grid {
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .number-grid button {
+                width: 60px;
+                height: 50px;
+                font-size: 16px;
+                border-radius: 8px;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .number-grid {
+                grid-template-columns: repeat(3, 60px);
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>NHẬP PASS ĐI NGƯỜI ĐẸP</h1>
+        <div class="content">
+            <div class="image-container">
+                <img src="./img/4.jpg" alt="Avatar" class="avatar" />
+                <div class="error-message" id="error-message"></div>
+            </div>
+
+            <div class="input-container">
+                <input type="text" id="password" placeholder="••••" readonly />
+                <div class="number-grid">
+                    <button onclick="addNumber('1')">1</button>
+                    <button onclick="addNumber('2')">2</button>
+                    <button onclick="addNumber('3')">3</button>
+                    <button onclick="addNumber('4')">4</button>
+                    <button onclick="addNumber('5')">5</button>
+                    <button onclick="addNumber('6')">6</button>
+                    <button onclick="addNumber('7')">7</button>
+                    <button onclick="addNumber('8')">8</button>
+                    <button onclick="addNumber('9')">9</button>
+                    <button onclick="checkPassword()" class="submit">✔</button>
+                    <button onclick="addNumber('0')" class="zero">0</button>
+                    <button onclick="clearPassword()" class="delete-btn">✖</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/login.js"></script>
+</body>
+
+</html>

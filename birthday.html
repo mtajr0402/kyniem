@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Website rainlove - nơi chia sẻ tình yêu thương." />
+    <title>Textlove</title>
+    <link rel="icon" href="https://github.com/Panbap/anh/blob/main/icon1.png?raw=true" type="image/png" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        html,
+        body {
+            font-family: "Mali", cursive;
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            color: white;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        #sticker {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: 450px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        #buttonWrapper {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            z-index: 12;
+        }
+
+        #letterPageBtn,
+        #nextPageBtn {
+            padding: 8px 15px;
+            font-size: 1.2rem;
+            background-color: #f584b700;
+            border: none;
+            border-radius: 8px;
+            font-family: "Mali", cursive;
+            color: rgba(255, 255, 255, 0);
+            cursor: pointer;
+            /* box-shadow: 0 4px 10px rgba(245, 132, 183, 0.6); */
+            transition: background-color 0.3s ease;
+        }
+
+        #letterPageBtn {
+            background-color: #84b3f5;
+            box-shadow: 0 4px 10px rgba(132, 179, 245, 0.6);
+        }
+
+        #letterPageBtn:hover {
+            background-color: #538de0;
+        }
+
+        #nextPageBtn:hover {
+            background-color: #e0538d;
+        }
+
+        audio {
+            display: none;
+        }
+
+        #rotateWarning {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgb(199, 199, 199);
+            color: rgb(0, 0, 0);
+            font-size: 1.2rem;
+            text-align: center;
+            font-family: "Mali", cursive;
+            padding-top: 40vh;
+            z-index: 20;
+        }
+
+        #rotateIcon {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+            animation: rotatePhone 2s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        @keyframes rotatePhone {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(20deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            75% {
+                transform: rotate(-20deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #sticker {
+                width: 150px;
+                height: 150px;
+            }
+
+            #letterPageBtn,
+            #nextPageBtn {
+                font-size: 1rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="rainCanvas"></canvas>
+    <canvas id="canvas"></canvas>
+    <img id="sticker" src="" alt="Sticker" />
+    <div id="buttonWrapper">
+        <!-- <button id="letterPageBtn" style="display: none;">Thư nè</button> -->
+        <button id="nextPageBtn" style="display: none;"> </button>
+    </div>
+
+    <audio id="bgm" loop></audio>
+
+    <div id="rotateWarning" class="display: none;">
+        <img id="rotateIcon" src="./img/123.png" alt="Rotate phone" />
+        <br />
+        Vui lòng xoay ngang màn hình!
+    </div>
+    <script src="./assets/birthday.js"></script>
+</body>
+
+</html>
