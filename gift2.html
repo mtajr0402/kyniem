@@ -7,6 +7,9 @@
     <title>Quà nè</title>
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
     <link rel="icon" href="https://github.com/Panbap/anh/blob/main/icon1.png?raw=true" type="image/png" />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -20,12 +23,31 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.4);
-            font-family: "Mountains of Christmas", cursive;
+            font-family: "Mali", cursive;
             overflow: hidden;
-
             touch-action: manipulation;
             -webkit-user-select: none;
             user-select: none;
+        }
+
+        body {
+            background: linear-gradient(270deg, #f6d365, #fda085, #fbc2eb, #a6c1ee);
+            background-size: 800% 800%;
+            animation: gradientBG 20s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         html::after,
@@ -175,7 +197,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #721919;
+            background: linear-gradient(to bottom, #ad3131 30%, #9e2727 100%);
+            border-radius: 8px;
         }
 
         .bottom {
@@ -282,8 +305,9 @@
             top: 0;
             left: -5px;
             width: 210px;
-            background-color: #490909;
+            background: linear-gradient(to bottom, #ad3131 30%, #9e2727 100%);
             opacity: 1;
+            transition: transform 0.3s ease;
         }
 
         .lid-top {
@@ -366,9 +390,7 @@
         .button-group {
             display: flex;
             justify-content: center;
-            /* căn giữa cả 2 nút */
             gap: 40px;
-            /* khoảng cách giữa nút trái và phải */
             margin-top: 30px;
             position: absolute;
             top: 70%;
@@ -379,11 +401,12 @@
 
         .button-group button {
             background-color: #ff9da4;
-            color: white;
+            color: rgb(0, 0, 0);
             padding: 15px 30px;
             border: none;
             border-radius: 10px;
-            font-size: 18px;
+            font-size: 12px;
+            font-weight: 600;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             transition: background 0.3s;
@@ -393,6 +416,28 @@
 
         .button-group button:hover {
             background-color: #ff838b;
+            box-shadow: 0 0 10px rgba(255, 182, 185, 0.6);
+        }
+
+        .gift1-button,
+        .gift2-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #e2e2e2, #dfdfdf);
+            color: white;
+            font-size: 16px;
+        }
+
+        .gift1-button img,
+        .gift2-button img {
+            width: 80px;
+            height: auto;
         }
     </style>
 
@@ -403,14 +448,21 @@
 
     <!-- <div class="headline">MERRY CHRISTMAS</div> -->
 
-    <div class="instructions">Quà nè</div>
+    <div class="instructions">Quà tặng em</div>
 
     <div class="present">
         <img class="gift" src="./img/gift3.jpg" alt="the gift">
 
         <div class="button-group" style="display: none;">
-            <button class="gift1-button">AirPods Pro 3</button>
-            <button class="gift2-button">iPhone 17 Pro Max</button>
+            <button class="gift1-button">
+                <img src="./img/air.png" alt="AirPods" />
+                <span>AirPods Pro 3</span>
+            </button>
+            <button class="gift2-button">
+                <img src="./img/iphone.png" alt="iPhone" />
+                <span>iPhone 17 Pro Max</span>
+            </button>
+
         </div>
 
 
@@ -432,6 +484,7 @@
             </div>
         </div>
     </div>
+
     <script id="rendered-js">
         const countsNeeded = 20;
         let counts = 1;
