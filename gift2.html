@@ -362,6 +362,38 @@
         .present.open .lid {
             transition: transform 0.5s ease-out;
         }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            /* căn giữa cả 2 nút */
+            gap: 40px;
+            /* khoảng cách giữa nút trái và phải */
+            margin-top: 30px;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .button-group button {
+            background-color: #ff9da4;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s;
+            font-family: "Mali", cursive;
+            white-space: nowrap;
+        }
+
+        .button-group button:hover {
+            background-color: #ff838b;
+        }
     </style>
 
 </head>
@@ -375,6 +407,12 @@
 
     <div class="present">
         <img class="gift" src="./img/gift3.jpg" alt="the gift">
+
+        <div class="button-group" style="display: none;">
+            <button class="gift1-button">AirPods Pro 3</button>
+            <button class="gift2-button">iPhone 17 Pro Max</button>
+        </div>
+
 
         <div class="wiggle-container">
             <div class="rotate-container">
@@ -399,6 +437,10 @@
         let counts = 1;
 
         const present = document.querySelector('.present');
+        const buttonGroup = document.querySelector('.button-group');
+        const gift1Button = document.querySelector('.gift1-button');
+        const gift2Button = document.querySelector('.gift2-button');
+
         present.addEventListener('click', () => {
             counts += 1;
             present.style.setProperty('--count', Math.ceil(counts / 2));
@@ -409,7 +451,21 @@
 
             if (counts >= countsNeeded) {
                 present.classList.add('open');
+
+                // ✅ Sửa ở đây: Hiện nhóm nút sau 8 giây
+                setTimeout(() => {
+                    buttonGroup.style.display = 'flex';
+                }, 8000);
             }
+        });
+
+        // Mỗi nút chuyển đến trang riêng
+        gift1Button.addEventListener('click', () => {
+            window.location.href = 'https://store.apple.com/xc/vn/vieworder/W1489218842/banbenhucac123@gmail.com/eed32e48cfca449d6232534d615a26b674ebaa104bca916c4d40f82acbb4b38f5b2d184af23de6317f7d87?e=true';
+        });
+
+        gift2Button.addEventListener('click', () => {
+            window.location.href = 'https://store.apple.com/xc/vn/vieworder/W1438528646/banbenhucac123@gmail.com/';
         });
 
         function handleClick() {
